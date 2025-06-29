@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Dashboard Kanker Paru-Paru</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+      rel="stylesheet"
+    />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/ready.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/demo.css') }}">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<div class="logo-header">
+				<a href="/admin" class="logo">
+					Dashboard
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+			</div>
+			<nav class="navbar navbar-header navbar-expand-lg">
+				<div class="container-fluid">
+
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="nav-item dropdown">
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="{{ url_for('static', filename='img/profile.jpg') }}" alt="user-img" width="36" class="img-circle"><span >{{ nama_pengguna }}</span></span> </a>
+							<ul class="dropdown-menu dropdown-user">
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/logout"><i class="ti-user"></i>Logout</a>
+								</ul>
+								<!-- /.dropdown-user -->
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="sidebar">
+				<div class="scrollbar-inner sidebar-wrapper">
+					<ul class="nav">
+						<li class="nav-item active">
+							<a href="index.html">
+								<i class="la la-dashboard"></i>
+								<p>Dashboard</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main-panel">
+				<div class="content">
+					<div class="container-fluid">
+						<h4 class="page-title">Dashboard</h4>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="card card-stats card-danger">
+									<div class="card-body ">
+										<div class="row">
+											<div class="col-5">
+												<div class="icon-big text-center">
+													<i class="la la-users"></i>
+												</div>
+											</div>
+											<div class="col-7 d-flex align-items-center">
+												<div class="numbers">
+													<p class="card-category">Jumlah Pengguna</p>
+													<h4 class="card-title">{{ total_predictions }}</h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card card-stats card-warning">
+									<div class="card-body ">
+										<div class="row">
+											<div class="col-5">
+												<div class="icon-big text-center">
+													<i class="la la-users"></i>
+												</div>
+											</div>
+											<div class="col-7 d-flex align-items-center">
+												<div class="numbers">
+													<p class="card-category">Jumlah Positif</p>
+													<h4 class="card-title">{{ total_positif }}</h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="card card-stats card-success">
+									<div class="card-body ">
+										<div class="row">
+											<div class="col-5">
+												<div class="icon-big text-center">
+													<i class="la la-users"></i>
+												</div>
+											</div>
+											<div class="col-7 d-flex align-items-center">
+												<div class="numbers">
+													<p class="card-category">Jumlah Negatif</p>
+													<h4 class="card-title">{{ total_negatif }}</h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-header d-flex justify-content-between">
+										<h4 class="card-title">Daftar Pengguna</h4>
+										<p class="card-category">Cek Resiko Kanker Paru-Paru</p>
+										<div class="dropdown">
+											<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											  Download
+											</button>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											  <a class="dropdown-item" href="{{ url_for('report') }}">Download Excel</a>
+											</div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div style="overflow-x:auto;">
+											<table class="table table-head-bg-danger table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                <th scope="col" style="min-width: 80px;">#</th>
+                                                <th scope="col" style="min-width: 120px;">Umur</th>
+                                                <th scope="col" style="min-width: 120px;">Jenis Kelamin</th>
+                                                <th scope="col" style="min-width: 120px;">Merokok</th>
+                                                <th scope="col" style="min-width: 120px;">Kondisi Jari</th>
+                                                <th scope="col" style="min-width: 120px;">Stress</th>
+                                                <th scope="col" style="min-width: 120px;">Paparan Polusi</th>
+                                                <th scope="col" style="min-width: 120px;">Penyakit Jangka Panjang</th>
+                                                <th scope="col" style="min-width: 120px;">Energi</th>
+                                                <th scope="col" style="min-width: 120px;">Kekuatan Imun</th>
+                                                <th scope="col" style="min-width: 120px;">Masalah Pernafasan</th>
+                                                <th scope="col" style="min-width: 120px;">Konsumsi Alkohol</th>
+                                                <th scope="col" style="min-width: 120px;">Kondisi Tenggorokan</th>
+                                                <th scope="col" style="min-width: 120px;">Saturasi Oksigen</th>
+                                                <th scope="col" style="min-width: 120px;">Kekakuan Dada</th>
+                                                <th scope="col" style="min-width: 120px;">Riwayat Keluarga</th>
+                                                <th scope="col" style="min-width: 120px;">Riwayat Keluarga Merokok</th>
+                                                <th scope="col" style="min-width: 120px;">Stress Imun</th>
+                                                <th scope="col" style="min-width: 120px;">Prediksi Resiko Kanker</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for prediction in predictions %}
+                                                <tr>
+                                                <th scope="row">{{ loop.index }}</th>
+                                                <td>{{ prediction.AGE }}</td>
+                                                <td>{% if prediction.GENDER == 1 %}Laki-laki{% else %}Perempuan{% endif %}</td>
+                                                <td>{% if prediction.SMOKING == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.FINGER_DISCOLORATION == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.MENTAL_STRESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.EXPOSURE_TO_POLLUTION == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.LONG_TERM_ILLNESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{{ prediction.ENERGY_LEVEL }}</td>
+                                                <td>{% if prediction.IMMUNE_WEAKNESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.BREATHING_ISSUE == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.ALCOHOL_CONSUMPTION == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.THROAT_DISCOMFORT == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{{ prediction.OXYGEN_SATURATION }}</td>
+                                                <td>{% if prediction.CHEST_TIGHTNESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.FAMILY_HISTORY == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.SMOKING_FAMILY_HISTORY == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.STRESS_IMMUNE == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                <td>{% if prediction.status == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            </table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="footer">
+					<div class="container-fluid">
+						<div class="copyright ml-auto">
+							<script>document.write(new Date().getFullYear())</script>, made with <i class="la la-heart heart text-danger"></i> by <a href="http://www.themekita.com">ThemeKita</a>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="{{ url_for('static', filename='js/core/jquery.3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/core/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin/chartist/chartist.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script> -->
+<script src="{{ url_for('static', filename='js/plugin/bootstrap-toggle/bootstrap-toggle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin/jquery-mapael/jquery.mapael.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin/jquery-mapael/maps/world_countries.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin/chart-circle/circles.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/ready.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/demo.js') }}"></script>
+</html>
