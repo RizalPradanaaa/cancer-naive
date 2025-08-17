@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 17/08/2025 15:56:11
+ Date: 17/08/2025 16:16:24
 */
 
 SET NAMES utf8mb4;
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `dataset`;
 CREATE TABLE `dataset`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `Age` int NULL DEFAULT NULL,
-  `Gender` enum('Laki-laki','Perempuan') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Gender` int NULL DEFAULT NULL,
   `Air_Pollution` int NULL DEFAULT NULL,
   `Obesity` int NULL DEFAULT NULL,
   `Passive_Smoker` int NULL DEFAULT NULL,
@@ -35,12 +35,14 @@ CREATE TABLE `dataset`  (
   `Clubbing_of_Finger_Nails` int NULL DEFAULT NULL,
   `status` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dataset
 -- ----------------------------
-INSERT INTO `dataset` VALUES (1, 23, 'Laki-laki', 4, 1, 0, 1, 0, 1, 0, 1, 1);
+INSERT INTO `dataset` VALUES (1, 16, 1, 8, 0, 1, 0, 1, 0, 1, 1, 1);
+INSERT INTO `dataset` VALUES (2, 23, 0, 6, 0, 1, 1, 1, 1, 1, 1, 1);
+INSERT INTO `dataset` VALUES (3, 56, 1, 89, 0, 1, 0, 1, 0, 1, 0, 1);
 
 -- ----------------------------
 -- Table structure for users
