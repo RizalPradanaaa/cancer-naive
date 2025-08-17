@@ -57,65 +57,90 @@
 					<div class="container-fluid">
 						<h4 class="page-title">Dashboard</h4>
 						<div class="row">
-							<div class="col-md-4">
-								<div class="card card-stats card-danger">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-users"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Jumlah Pengguna</p>
-													<h4 class="card-title">{{ total_predictions }}</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="card card-stats card-warning">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-users"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Jumlah Positif</p>
-													<h4 class="card-title">{{ total_positif }}</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="card card-stats card-success">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-users"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Jumlah Negatif</p>
-													<h4 class="card-title">{{ total_negatif }}</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                        <div class="col-md-3">
+                            <div class="card card-stats card-danger">
+                            <div class="card-body ">
+                                <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-users"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                    <p class="card-category">Total</p>
+                                    <h4 class="card-title">{{ total_predictions }}</h4>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
 
-						</div>
+                        <!-- Low -->
+                        <div class="col-md-3">
+                            <div class="card card-stats card-success">
+                            <div class="card-body ">
+                                <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-users"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                    <p class="card-category">Jumlah Risiko Rendah</p>
+                                    <h4 class="card-title">{{ total_low }}</h4>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Medium -->
+                        <div class="col-md-3">
+                            <div class="card card-stats card-warning">
+                            <div class="card-body ">
+                                <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-users"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                    <p class="card-category">Jumlah Risiko Sedang</p>
+                                    <h4 class="card-title">{{ total_medium }}</h4>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- High -->
+                        <div class="col-md-3">
+                            <div class="card card-stats card-danger">
+                            <div class="card-body ">
+                                <div class="row">
+                                <div class="col-5">
+                                    <div class="icon-big text-center">
+                                    <i class="la la-users"></i>
+                                    </div>
+                                </div>
+                                <div class="col-7 d-flex align-items-center">
+                                    <div class="numbers">
+                                    <p class="card-category">Jumlah Risiko Tinggi</p>
+                                    <h4 class="card-title">{{ total_high }}</h4>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
 						<div class="row">
 							<div class="col-md-12">
 								<div class="card">
@@ -134,54 +159,50 @@
 									<div class="card-body">
 										<div style="overflow-x:auto;">
 											<table class="table table-head-bg-danger table-striped table-hover">
-                                            <thead>
-                                                <tr>
-                                                <th scope="col" style="min-width: 80px;">#</th>
-                                                <th scope="col" style="min-width: 120px;">Umur</th>
-                                                <th scope="col" style="min-width: 120px;">Jenis Kelamin</th>
-                                                <th scope="col" style="min-width: 120px;">Merokok</th>
-                                                <th scope="col" style="min-width: 120px;">Kondisi Jari</th>
-                                                <th scope="col" style="min-width: 120px;">Stress</th>
-                                                <th scope="col" style="min-width: 120px;">Paparan Polusi</th>
-                                                <th scope="col" style="min-width: 120px;">Penyakit Jangka Panjang</th>
-                                                <th scope="col" style="min-width: 120px;">Energi</th>
-                                                <th scope="col" style="min-width: 120px;">Kekuatan Imun</th>
-                                                <th scope="col" style="min-width: 120px;">Masalah Pernafasan</th>
-                                                <th scope="col" style="min-width: 120px;">Konsumsi Alkohol</th>
-                                                <th scope="col" style="min-width: 120px;">Kondisi Tenggorokan</th>
-                                                <th scope="col" style="min-width: 120px;">Saturasi Oksigen</th>
-                                                <th scope="col" style="min-width: 120px;">Kekakuan Dada</th>
-                                                <th scope="col" style="min-width: 120px;">Riwayat Keluarga</th>
-                                                <th scope="col" style="min-width: 120px;">Riwayat Keluarga Merokok</th>
-                                                <th scope="col" style="min-width: 120px;">Stress Imun</th>
-                                                <th scope="col" style="min-width: 120px;">Prediksi Resiko Kanker</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for prediction in predictions %}
-                                                <tr>
-                                                <th scope="row">{{ loop.index }}</th>
-                                                <td>{{ prediction.AGE }}</td>
-                                                <td>{% if prediction.GENDER == 1 %}Laki-laki{% else %}Perempuan{% endif %}</td>
-                                                <td>{% if prediction.SMOKING == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.FINGER_DISCOLORATION == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.MENTAL_STRESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.EXPOSURE_TO_POLLUTION == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.LONG_TERM_ILLNESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{{ prediction.ENERGY_LEVEL }}</td>
-                                                <td>{% if prediction.IMMUNE_WEAKNESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.BREATHING_ISSUE == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.ALCOHOL_CONSUMPTION == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.THROAT_DISCOMFORT == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{{ prediction.OXYGEN_SATURATION }}</td>
-                                                <td>{% if prediction.CHEST_TIGHTNESS == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.FAMILY_HISTORY == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.SMOKING_FAMILY_HISTORY == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.STRESS_IMMUNE == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                <td>{% if prediction.status == 1 %}Ya{% else %}Tidak{% endif %}</td>
-                                                </tr>
-                                                {% endfor %}
-                                            </tbody>
+                                                <thead>
+                                                    <tr>
+                                                    <th scope="col" style="min-width: 80px;">#</th>
+                                                    <th scope="col" style="min-width: 120px;">Umur</th>
+                                                    <th scope="col" style="min-width: 120px;">Jenis Kelamin</th>
+                                                    <th scope="col" style="min-width: 120px;">Polusi Udara</th>
+                                                    <th scope="col" style="min-width: 120px;">Obesitas</th>
+                                                    <th scope="col" style="min-width: 120px;">Perokok Pasif</th>
+                                                    <th scope="col" style="min-width: 120px;">Kelelahan</th>
+                                                    <th scope="col" style="min-width: 120px;">Kehilangan Berat Badan</th>
+                                                    <th scope="col" style="min-width: 120px;">Mengi</th>
+                                                    <th scope="col" style="min-width: 120px;">Kesulitan Menelan</th>
+                                                    <th scope="col" style="min-width: 120px;">Clubbing of Finger Nails</th>
+                                                    <th scope="col" style="min-width: 150px;">Prediksi Risiko Kanker</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for prediction in predictions %}
+                                                    <tr>
+                                                    <th scope="row">{{ loop.index }}</th>
+                                                    <td>{{ prediction.Age }}</td>
+                                                    <td>{% if prediction.Gender == 1 %}Laki-laki{% else %}Perempuan{% endif %}</td>
+                                                    <td>{{ prediction.Air_Pollution }}</td>
+                                                    <td>{% if prediction.Obesity == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                    <td>{% if prediction.Passive_Smoker == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                    <td>{% if prediction.Fatigue == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                    <td>{% if prediction.Weight_Loss == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                    <td>{% if prediction.Wheezing == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                    <td>{% if prediction.Swallowing_Difficulty == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                    <td>{% if prediction.Clubbing_of_Finger_Nails == 1 %}Ya{% else %}Tidak{% endif %}</td>
+                                                    <td>
+                                                        {% if prediction.status == 0 %}
+                                                        Rendah
+                                                        {% elif prediction.status == 1 %}
+                                                        Sedang
+                                                        {% elif prediction.status == 2 %}
+                                                        Tinggi
+                                                        {% else %}
+                                                        Tidak Diketahui
+                                                        {% endif %}
+                                                    </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
                                             </table>
 										</div>
 									</div>

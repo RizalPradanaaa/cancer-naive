@@ -29,37 +29,24 @@ def home():
     prediction = -1
     if request.method == 'POST':
         # Ambil semua fitur dari form
-        AGE = int(request.form.get('AGE'))
-        GENDER = int(request.form.get('GENDER'))
-        SMOKING = int(request.form.get('SMOKING'))
-        FINGER_DISCOLORATION = int(request.form.get('FINGER_DISCOLORATION'))
-        MENTAL_STRESS = int(request.form.get('MENTAL_STRESS'))
-        EXPOSURE_TO_POLLUTION = int(request.form.get('EXPOSURE_TO_POLLUTION'))
-        LONG_TERM_ILLNESS = int(request.form.get('LONG_TERM_ILLNESS'))
-        ENERGY_LEVEL = int(request.form.get('ENERGY_LEVEL'))
-        IMMUNE_WEAKNESS = int(request.form.get('IMMUNE_WEAKNESS'))
-        BREATHING_ISSUE = int(request.form.get('BREATHING_ISSUE'))
-        ALCOHOL_CONSUMPTION = int(request.form.get('ALCOHOL_CONSUMPTION'))
-        THROAT_DISCOMFORT = int(request.form.get('THROAT_DISCOMFORT'))
-        OXYGEN_SATURATION = int(request.form.get('OXYGEN_SATURATION'))
-        CHEST_TIGHTNESS = int(request.form.get('CHEST_TIGHTNESS'))
-        FAMILY_HISTORY = int(request.form.get('FAMILY_HISTORY'))
-        SMOKING_FAMILY_HISTORY = int(request.form.get('SMOKING_FAMILY_HISTORY'))
-        STRESS_IMMUNE = int(request.form.get('STRESS_IMMUNE'))
+        Age = int(request.form.get('Age'))
+        Gender = int(request.form.get('Gender'))
+        Air_Pollution = int(request.form.get('Air_Pollution'))
+        Obesity = int(request.form.get('Obesity'))
+        Passive_Smoker = int(request.form.get('Passive_Smoker'))
+        Fatigue = int(request.form.get('Fatigue'))
+        Weight_Loss = int(request.form.get('Weight_Loss'))
+        Wheezing = int(request.form.get('Wheezing'))
+        Swallowing_Difficulty = int(request.form.get('Swallowing_Difficulty'))
+        Clubbing_of_Finger_Nails = int(request.form.get('Clubbing_of_Finger_Nails'))
 
-        # Buat dataframe untuk prediksi
-        input_features = pd.DataFrame([[AGE, GENDER, SMOKING, FINGER_DISCOLORATION,
-                                        MENTAL_STRESS, EXPOSURE_TO_POLLUTION, LONG_TERM_ILLNESS,
-                                        ENERGY_LEVEL, IMMUNE_WEAKNESS, BREATHING_ISSUE,
-                                        ALCOHOL_CONSUMPTION, THROAT_DISCOMFORT, OXYGEN_SATURATION,
-                                        CHEST_TIGHTNESS, FAMILY_HISTORY, SMOKING_FAMILY_HISTORY,
-                                        STRESS_IMMUNE]],
-                                      columns=['AGE', 'GENDER', 'SMOKING', 'FINGER_DISCOLORATION',
-                                               'MENTAL_STRESS', 'EXPOSURE_TO_POLLUTION', 'LONG_TERM_ILLNESS',
-                                               'ENERGY_LEVEL', 'IMMUNE_WEAKNESS', 'BREATHING_ISSUE',
-                                               'ALCOHOL_CONSUMPTION', 'THROAT_DISCOMFORT', 'OXYGEN_SATURATION',
-                                               'CHEST_TIGHTNESS', 'FAMILY_HISTORY', 'SMOKING_FAMILY_HISTORY',
-                                               'STRESS_IMMUNE'])
+        # Buat dataframe untuk prediksi (harus sesuai urutan fitur yang dipakai model)
+        input_features = pd.DataFrame([[Age, Gender, Air_Pollution, Obesity,
+                                        Passive_Smoker, Fatigue, Weight_Loss,
+                                        Wheezing, Swallowing_Difficulty, Clubbing_of_Finger_Nails]],
+                                      columns=['Age', 'Gender', 'Air Pollution', 'Obesity',
+                                               'Passive Smoker', 'Fatigue', 'Weight Loss',
+                                               'Wheezing', 'Swallowing Difficulty', 'Clubbing of Finger Nails'])
 
         # Prediksi
         prediction = model.predict(input_features)
@@ -68,21 +55,19 @@ def home():
         # Simpan ke database
         insert_query = """
             INSERT INTO dataset (
-                AGE, GENDER, SMOKING, FINGER_DISCOLORATION, MENTAL_STRESS,
-                EXPOSURE_TO_POLLUTION, LONG_TERM_ILLNESS, ENERGY_LEVEL, IMMUNE_WEAKNESS,
-                BREATHING_ISSUE, ALCOHOL_CONSUMPTION, THROAT_DISCOMFORT, OXYGEN_SATURATION,
-                CHEST_TIGHTNESS, FAMILY_HISTORY, SMOKING_FAMILY_HISTORY, STRESS_IMMUNE, status
+                Age, Gender, Air_Pollution, Obesity, Passive_Smoker,
+                Fatigue, Weight_Loss, Wheezing, Swallowing_Difficulty,
+                Clubbing_of_Finger_Nails, status
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
-        data_tuple = (AGE, GENDER, SMOKING, FINGER_DISCOLORATION, MENTAL_STRESS,
-                      EXPOSURE_TO_POLLUTION, LONG_TERM_ILLNESS, ENERGY_LEVEL, IMMUNE_WEAKNESS,
-                      BREATHING_ISSUE, ALCOHOL_CONSUMPTION, THROAT_DISCOMFORT, OXYGEN_SATURATION,
-                      CHEST_TIGHTNESS, FAMILY_HISTORY, SMOKING_FAMILY_HISTORY, STRESS_IMMUNE,
-                      prediction)
+        data_tuple = (Age, Gender, Air_Pollution, Obesity, Passive_Smoker,
+                      Fatigue, Weight_Loss, Wheezing, Swallowing_Difficulty,
+                      Clubbing_of_Finger_Nails, prediction)
 
         db_cursor.execute(insert_query, data_tuple)
         db_connection.commit()
+
     return render_template('index.html', prediction=prediction)
 
 
@@ -176,11 +161,12 @@ def admin():
         predictions = db_cursor.fetchall()
 
         total_predictions = len(predictions)
-        total_negatif = sum(1 for prediction in predictions if prediction['status'] == 0)
-        total_positif = sum(1 for prediction in predictions if prediction['status'] == 1)
+        total_low = sum(1 for prediction in predictions if prediction['status'] == 0)
+        total_medium = sum(1 for prediction in predictions if prediction['status'] == 1)
+        total_high = sum(1 for prediction in predictions if prediction['status'] == 2)
 
         return render_template('admin.html', nama_pengguna=nama_pengguna, predictions=predictions,total_predictions=total_predictions,
-                               total_negatif=total_negatif, total_positif=total_positif)
+                               total_low=total_low, total_medium=total_medium, total_high=total_high)
     else:
         flash('Data pengguna tidak ditemukan.', 'danger')
         return redirect(url_for('login'))
@@ -198,34 +184,27 @@ def report():
     ws.title = "Data Prediksi"
 
     # Header kolom sesuai field
+    # Header Excel
     ws.append([
-        'Umur', 'Jenis Kelamin', 'Merokok', 'Kondisi Jari', 'Stress',
-        'Paparan Polusi', 'Penyakit Jangka Panjang', 'Energi', 'Kekuatan Imun',
-        'Masalah Pernafasan', 'Konsumsi Alkohol', 'Kondisi Tenggorokan', 'Saturasi Oksigen',
-        'Kekakuan Dada', 'Riwayat Keluarga', 'Riwayat Keluarga Merokok', 'Stress Imun', 'Status Prediksi'
+        'Age', 'Gender', 'Air Pollution', 'Obesity', 'Passive Smoker',
+        'Fatigue', 'Weight Loss', 'Wheezing', 'Swallowing Difficulty',
+        'Clubbing of Finger Nails', 'Status'
     ])
 
     # Loop data dan tambahkan ke Excel
     for row in data:
         ws.append([
-            row['AGE'],
-            'Laki-laki' if row['GENDER'] == 1 else 'Perempuan',
-            'Ya' if row['SMOKING'] == 1 else 'Tidak',
-            'Ya' if row['FINGER_DISCOLORATION'] == 1 else 'Tidak',
-            'Ya' if row['MENTAL_STRESS'] == 1 else 'Tidak',
-            'Ya' if row['EXPOSURE_TO_POLLUTION'] == 1 else 'Tidak',
-            'Ya' if row['LONG_TERM_ILLNESS'] == 1 else 'Tidak',
-            row['ENERGY_LEVEL'],
-            row['IMMUNE_WEAKNESS'],
-            'Ya' if row['BREATHING_ISSUE'] == 1 else 'Tidak',
-            'Ya' if row['ALCOHOL_CONSUMPTION'] == 1 else 'Tidak',
-            'Ya' if row['THROAT_DISCOMFORT'] == 1 else 'Tidak',
-            row['OXYGEN_SATURATION'],
-            'Ya' if row['CHEST_TIGHTNESS'] == 1 else 'Tidak',
-            'Ya' if row['FAMILY_HISTORY'] == 1 else 'Tidak',
-            'Ya' if row['SMOKING_FAMILY_HISTORY'] == 1 else 'Tidak',
-            'Ya' if row['STRESS_IMMUNE'] == 1 else 'Tidak',
-            'Positif' if row['status'] == 1 else 'Negatif'
+            row['Age'],
+            'Male' if row['Gender'] == 1 else 'Female',
+            row['Air_Pollution'],
+            row['Obesity'],
+            row['Passive_Smoker'],
+            row['Fatigue'],
+            row['Weight_Loss'],
+            row['Wheezing'],
+            row['Swallowing_Difficulty'],
+            row['Clubbing_of_Finger_Nails'],
+           'Low' if row['status'] == 0 else 'Medium' if row['status'] == 1 else 'High'
         ])
 
     # Simpan ke buffer memory

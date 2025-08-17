@@ -81,8 +81,10 @@
                     <input
                       class="form-control"
                       id="age"
-                      name="AGE"
+                      name="Age"
                       type="number"
+                      min="0"
+                      required
                     />
                   </div>
                 </div>
@@ -95,7 +97,7 @@
                       <input
                         class="form-check-input question__input"
                         id="gender_m"
-                        name="GENDER"
+                        name="Gender"
                         type="radio"
                         value="1"
                       />
@@ -109,7 +111,7 @@
                       <input
                         class="form-check-input question__input"
                         id="gender_f"
-                        name="GENDER"
+                        name="Gender"
                         type="radio"
                         value="0"
                       />
@@ -122,531 +124,279 @@
                   </div>
                 </div>
 
-                <!-- 3. SMOKING -->
+                <!-- 3. AIR POLLUTION -->
                 <div class="step">
-                  <h4>Kamu termasuk perokok aktif nggak?</h4>
-                  <div class="form-check ps-0 q-box">
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="SMOKING"
-                        id="smoking_yes"
-                        type="radio"
-                        value="1"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="smoking_yes"
-                        >Ya</label
-                      >
-                    </div>
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="SMOKING"
-                        id="smoking_no"
-                        type="radio"
-                        value="0"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="smoking_no"
-                        >Tidak</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 4. FINGER_DISCOLORATION -->
-                <div class="step">
-                  <h4>
-                    Pernah nggak lihat ujung jari kamu berubah warna, misalnya
-                    agak kehitaman?
-                  </h4>
-                  <div class="form-check ps-0 q-box">
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="FINGER_DISCOLORATION"
-                        id="finger_yes"
-                        type="radio"
-                        value="1"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="finger_yes"
-                        >Ya</label
-                      >
-                    </div>
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="FINGER_DISCOLORATION"
-                        id="finger_no"
-                        type="radio"
-                        value="0"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="finger_no"
-                        >Tidak</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 5. MENTAL_STRESS -->
-                <div class="step">
-                  <h4>
-                    Belakangan ini kamu sering merasa stres, tertekan, atau
-                    cemas berlebihan nggak?
-                  </h4>
-                  <div class="form-check ps-0 q-box">
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="MENTAL_STRESS"
-                        id="stress_yes"
-                        type="radio"
-                        value="1"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="stress_yes"
-                        >Ya</label
-                      >
-                    </div>
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="MENTAL_STRESS"
-                        id="stress_no"
-                        type="radio"
-                        value="0"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="stress_no"
-                        >Tidak</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 6. EXPOSURE_TO_POLLUTION -->
-                <div class="step">
-                  <h4>
-                    Apakah kamu sering berada di lingkungan yang penuh polusi,
-                    kayak asap kendaraan, rokok, atau pabrik?
-                  </h4>
-                  <div class="form-check ps-0 q-box">
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="EXPOSURE_TO_POLLUTION"
-                        id="pollution_yes"
-                        type="radio"
-                        value="1"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="pollution_yes"
-                        >Ya</label
-                      >
-                    </div>
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="EXPOSURE_TO_POLLUTION"
-                        id="pollution_no"
-                        type="radio"
-                        value="0"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="pollution_no"
-                        >Tidak</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 7. LONG_TERM_ILLNESS -->
-                <div class="step">
-                  <h4>
-                    Ada nggak sih penyakit jangka panjang yang kamu alami, kayak
-                    asma, TBC, atau lainnya?
-                  </h4>
-                  <div class="form-check ps-0 q-box">
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="LONG_TERM_ILLNESS"
-                        id="illness_yes"
-                        type="radio"
-                        value="1"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="illness_yes"
-                        >Ya</label
-                      >
-                    </div>
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="LONG_TERM_ILLNESS"
-                        id="illness_no"
-                        type="radio"
-                        value="0"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="illness_no"
-                        >Tidak</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 8. ENERGY_LEVEL -->
-                <div class="step">
-                  <h4>
-                    Gimana kondisi energi kamu sehari-hari? Lebih sering merasa
-                    semangat, biasa aja, atau gampang capek? (0 - 100)
-                  </h4>
+                  <h4>Seberapa sering kamu terpapar polusi udara (0-10)?</h4>
                   <div class="mt-1">
-                    <label class="form-label">Tingkat Energi:</label>
+                    <label class="form-label">Polusi Udara:</label>
                     <input
                       class="form-control"
-                      name="ENERGY_LEVEL"
+                      id="airpollution"
+                      name="Air_Pollution"
                       type="number"
-                      step="0.01"
                       min="0"
-                      max="100"
-                      required
+                      max="10"
                     />
                   </div>
                 </div>
 
-                <!-- 9. IMMUNE_WEAKNESS -->
+                <!-- 4. OBESITY -->
+                <div class="step">
+                  <h4>Apakah kamu mengalami obesitas?</h4>
+                  <div class="form-check ps-0 q-box">
+                    <div class="q-box__question">
+                      <input
+                        class="form-check-input question__input"
+                        type="radio"
+                        name="Obesity"
+                        id="obesity-yes"
+                        value="1"
+                      />
+                      <label
+                        class="form-check-label question__label"
+                        for="obesity-yes"
+                      >
+                        Ya
+                      </label>
+                    </div>
+                    <div class="q-box__question">
+                      <input
+                        class="form-check-input question__input"
+                        type="radio"
+                        name="Obesity"
+                        id="obesity-no"
+                        value="0"
+                      />
+                      <label
+                        class="form-check-label question__label"
+                        for="obesity-no"
+                      >
+                        Tidak
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 5. PASSIVE SMOKER -->
                 <div class="step">
                   <h4>
-                    Kamu merasa gampang sakit atau daya tahan tubuh kamu lemah
-                    nggak?
+                    Apakah kamu sering terpapar asap rokok dari orang lain?
                   </h4>
                   <div class="form-check ps-0 q-box">
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="IMMUNE_WEAKNESS"
-                        id="immune_yes"
+                        name="Passive_Smoker"
+                        id="passive_yes"
                         type="radio"
                         value="1"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="immune_yes"
+                        for="passive_yes"
                         >Ya</label
                       >
                     </div>
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="IMMUNE_WEAKNESS"
-                        id="immune_no"
+                        name="Passive_Smoker"
+                        id="passive_no"
                         type="radio"
                         value="0"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="immune_no"
+                        for="passive_no"
                         >Tidak</label
                       >
                     </div>
                   </div>
                 </div>
 
-                <!-- 10. BREATHING_ISSUE -->
+                <!-- 6. FATIGUE -->
                 <div class="step">
-                  <h4>
-                    Pernah ngerasa napas kamu pendek, susah, atau sering sesak
-                    nggak akhir-akhir ini?
-                  </h4>
+                  <h4>Apakah kamu sering merasa kelelahan?</h4>
                   <div class="form-check ps-0 q-box">
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="BREATHING_ISSUE"
-                        id="breath_yes"
+                        name="Fatigue"
+                        id="fatigue_yes"
                         type="radio"
                         value="1"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="breath_yes"
+                        for="fatigue_yes"
                         >Ya</label
                       >
                     </div>
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="BREATHING_ISSUE"
-                        id="breath_no"
+                        name="Fatigue"
+                        id="fatigue_no"
                         type="radio"
                         value="0"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="breath_no"
+                        for="fatigue_no"
                         >Tidak</label
                       >
                     </div>
                   </div>
                 </div>
 
-                <!-- 11. ALCOHOL_CONSUMPTION -->
+                <!-- 7. WEIGHT LOSS -->
                 <div class="step">
-                  <h4>Kamu konsumsi alkohol secara rutin nggak?</h4>
+                  <h4>
+                    Apakah kamu mengalami penurunan berat badan tanpa sebab?
+                  </h4>
                   <div class="form-check ps-0 q-box">
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="ALCOHOL_CONSUMPTION"
-                        id="alcohol_yes"
+                        name="Weight_Loss"
+                        id="weight_yes"
                         type="radio"
                         value="1"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="alcohol_yes"
+                        for="weight_yes"
                         >Ya</label
                       >
                     </div>
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="ALCOHOL_CONSUMPTION"
-                        id="alcohol_no"
+                        name="Weight_Loss"
+                        id="weight_no"
                         type="radio"
                         value="0"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="alcohol_no"
+                        for="weight_no"
                         >Tidak</label
                       >
                     </div>
                   </div>
                 </div>
 
-                <!-- 12. THROAT_DISCOMFORT -->
+                <!-- 8. WHEEZING -->
                 <div class="step">
-                  <h4>Kamu sering merasa tenggorokan kamu nggak nyaman?</h4>
+                  <h4>
+                    Apakah kamu sering mengalami mengi (bunyi napas berbunyi)?
+                  </h4>
                   <div class="form-check ps-0 q-box">
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="THROAT_DISCOMFORT"
-                        id="throat_yes"
+                        name="Wheezing"
+                        id="wheezing_yes"
                         type="radio"
                         value="1"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="throat_yes"
+                        for="wheezing_yes"
                         >Ya</label
                       >
                     </div>
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="THROAT_DISCOMFORT"
-                        id="throat_no"
+                        name="Wheezing"
+                        id="wheezing_no"
                         type="radio"
                         value="0"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="throat_no"
+                        for="wheezing_no"
                         >Tidak</label
                       >
                     </div>
                   </div>
                 </div>
 
-                <!-- 13. OXYGEN_SATURATION -->
+                <!-- 9. SWALLOWING DIFFICULTY -->
                 <div class="step">
-                  <h4>
-                    Kalau kamu pernah cek, berapa biasanya kadar oksigen (SpO2)
-                    kamu? (0 - 100%)
-                  </h4>
-                  <div class="mt-1">
-                    <label class="form-label">Kadar Oksigen (SpO2):</label>
-                    <input
-                      class="form-control"
-                      name="OXYGEN_SATURATION"
-                      type="number"
-                      step="0.01"
-                      min="0"
-                      max="100"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <!-- 14. CHEST_TIGHTNESS -->
-                <div class="step">
-                  <h4>
-                    Kamu pernah ngerasain dada kamu terasa sesak atau seperti
-                    ditekan?
-                  </h4>
+                  <h4>Apakah kamu mengalami kesulitan saat menelan?</h4>
                   <div class="form-check ps-0 q-box">
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="CHEST_TIGHTNESS"
-                        id="chest_yes"
+                        name="Swallowing_Difficulty"
+                        id="swallowing_yes"
                         type="radio"
                         value="1"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="chest_yes"
+                        for="swallowing_yes"
                         >Ya</label
                       >
                     </div>
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="CHEST_TIGHTNESS"
-                        id="chest_no"
+                        name="Swallowing_Difficulty"
+                        id="swallowing_no"
                         type="radio"
                         value="0"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="chest_no"
+                        for="swallowing_no"
                         >Tidak</label
                       >
                     </div>
                   </div>
                 </div>
 
-                <!-- 15. FAMILY_HISTORY -->
+                <!-- 10. CLUBBING OF FINGER NAILS -->
                 <div class="step">
                   <h4>
-                    Di keluarga kamu ada yang pernah didiagnosis kanker
-                    paru-paru nggak?
+                    Apakah ujung jari kamu menebal atau membulat (Clubbing of
+                    Finger Nails)?
                   </h4>
                   <div class="form-check ps-0 q-box">
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="FAMILY_HISTORY"
-                        id="family_yes"
+                        name="Clubbing_of_Finger_Nails"
+                        id="clubbing_yes"
                         type="radio"
                         value="1"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="family_yes"
+                        for="clubbing_yes"
                         >Ya</label
                       >
                     </div>
                     <div class="q-box__question">
                       <input
                         class="form-check-input question__input"
-                        name="FAMILY_HISTORY"
-                        id="family_no"
+                        name="Clubbing_of_Finger_Nails"
+                        id="clubbing_no"
                         type="radio"
                         value="0"
                       />
                       <label
                         class="form-check-label question__label"
-                        for="family_no"
-                        >Tidak</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 16. SMOKING_FAMILY_HISTORY -->
-                <div class="step">
-                  <h4>
-                    Ada anggota keluarga kamu yang biasa merokok di rumah atau
-                    dekat kamu?
-                  </h4>
-                  <div class="form-check ps-0 q-box">
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="SMOKING_FAMILY_HISTORY"
-                        id="smoke_family_yes"
-                        type="radio"
-                        value="1"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="smoke_family_yes"
-                        >Ya</label
-                      >
-                    </div>
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="SMOKING_FAMILY_HISTORY"
-                        id="smoke_family_no"
-                        type="radio"
-                        value="0"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="smoke_family_no"
-                        >Tidak</label
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 17. STRESS_IMMUNE -->
-                <div class="step">
-                  <h4>
-                    Menurut kamu, stres yang kamu alami mempengaruhi kesehatan
-                    atau daya tahan tubuh kamu nggak?
-                  </h4>
-                  <div class="form-check ps-0 q-box">
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="STRESS_IMMUNE"
-                        id="stress_immune_yes"
-                        type="radio"
-                        value="1"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="stress_immune_yes"
-                        >Ya</label
-                      >
-                    </div>
-                    <div class="q-box__question">
-                      <input
-                        class="form-check-input question__input"
-                        name="STRESS_IMMUNE"
-                        id="stress_immune_no"
-                        type="radio"
-                        value="0"
-                      />
-                      <label
-                        class="form-check-label question__label"
-                        for="stress_immune_no"
+                        for="clubbing_no"
                         >Tidak</label
                       >
                     </div>
                   </div>
                 </div>
               </div>
+
               <div id="q-box__buttons">
                 <button id="prev-btn" type="button">Previous</button>
                 <button id="next-btn" type="button">Next</button>
@@ -672,31 +422,46 @@
         let html = '';
         let confirmColor = '#3085d6';
 
-        {% if prediction == 1 %}
+        {% if prediction == 0 %}
+        // LOW
+        icon = 'success';
+        title = 'Risiko Rendah';
+        html = `
+          <strong>Hasil menunjukkan risiko rendah terhadap kanker paru-paru.</strong><br>
+          Tetap jaga pola hidup sehat dan lakukan pemeriksaan rutin untuk pencegahan.
+        `;
+        confirmColor = '#28a745'; // hijau
+
+        {% elif prediction == 1 %}
+        // MEDIUM
         icon = 'warning';
+        title = 'Risiko Sedang';
+        html = `
+          <strong>Hasil menunjukkan indikasi risiko sedang terhadap kanker paru-paru.</strong><br>
+          Disarankan untuk segera berkonsultasi dengan tenaga medis agar mendapatkan saran lebih lanjut.
+        `;
+        confirmColor = '#d39e00'; // kuning
+
+        {% elif prediction == 2 %}
+        // HIGH
+        icon = 'error';
         title = 'Risiko Tinggi';
         html = `
           <strong>Hasil menunjukkan indikasi risiko tinggi terhadap kanker paru-paru.</strong><br>
           <br>
           Segera konsultasikan ke tenaga medis profesional untuk pemeriksaan lebih lanjut.
         `;
-        confirmColor = '#d39e00'; // kuning
-        {% elif prediction == 0 %}
-        icon = 'success';
-        title = 'Tidak Ada Risiko Signifikan';
-        html = `
-          <strong>Tidak ditemukan tanda risiko signifikan kanker paru-paru.</strong><br>
-          Tetap pertahankan gaya hidup sehat dan lakukan pemeriksaan rutin untuk pencegahan.
-        `;
-        confirmColor = '#28a745'; // hijau
+        confirmColor = '#dc3545'; // merah
+
         {% else %}
+        // ERROR / UNDEFINED
         icon = 'error';
         title = '❌ Gagal Memproses';
         html = `
           Maaf, terjadi kesalahan saat memproses data kamu.<br>
           Silakan coba lagi dalam beberapa saat.
         `;
-        confirmColor = '#dc3545'; // merah
+        confirmColor = '#6c757d'; // abu-abu
         {% endif %}
 
         Swal.fire({

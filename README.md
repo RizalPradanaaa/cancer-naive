@@ -1,4 +1,4 @@
-# 🚀 Aplikasi Prediksi Risiko Kanker Paru-Paru (Naive Bayes)
+# 🚀 Aplikasi Prediksi Risiko Kanker Paru-Paru (Naive Bayes) Dengan Seleksi Fitur menggunakan GWO (Grey Wolf Optimizer)
 
 Aplikasi web ini menggunakan model Naive Bayes untuk memprediksi risiko kanker paru-paru berdasarkan input pengguna. Dibangun menggunakan **Flask** dan **MySQL**.
 
